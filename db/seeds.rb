@@ -1,9 +1,17 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# list
+# validates :name, presence: true, uniqueness: true
+p 'Deleting database'
+List.destroy_all
+Bookmark.destroy_all
+
+p 'Creating a list'
+
+test_list = List.new(name: "test")
+test_list.save
+
+# bookmark
+# validates :comment, presence: true, length: { minimum: 6 }
+# validates :movie_id, uniqueness: { scope: :list_id, message: "Bookmark already exists for this movie in the list" }
+p 'Creating a bookmark'
+test_bookmark = Bookmark.new(comment: "test")
+test_bookmark.save

@@ -1,6 +1,5 @@
 class ListsController < ApplicationController
   def index
-    raise
     @lists = List.all
   end
 
@@ -9,21 +8,21 @@ class ListsController < ApplicationController
   end
 
   def new
-    @list = List.new(strong_params)
+    @list = List.new
+  end
+
+  def create
+    @list = List.new(list_params)
     if @list.save
-      redirect_to lists_path
+      redirect_to list_path(@list)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def create
-    @list = List.new
-  end
-
   private
 
-  def strong_params
+  def list_params
     params.require(:list).permit(:name)
   end
 end
