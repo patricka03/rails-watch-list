@@ -1,1 +1,11 @@
-<h1>Hello World !!!</h1>
+<h1>Save any kind of movies!!!</h1>
+<%=@lists.each do |list|%>
+  <%= list.name %>
+<% end %>
+
+
+<% @lists.each do |list| %>
+  <%= link_to list_path(list), class:"text-decoration-none" do %>
+      <%= list.name %>
+  <% end %>
+<% end %>
