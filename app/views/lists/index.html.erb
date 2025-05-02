@@ -1,6 +1,6 @@
 <div class="banner index-banner">
   <div class="container">
-    <div class="text-center">
+    <div class="text-center col-md-6 col-sm-12 ">
       <h1>Save any kind of movies</h1>
     </div>
   </div>
@@ -16,12 +16,11 @@
     </div>
   </div>
 
-
   <div class="row">
     <%@lists.each do |list|%>
       <div class="col-md-6 col-sm-12 text-center">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card w-50">
+          <%= cl_image_tag list.photo.key, crop: :fill %>
           <div class="card-body">
             <%= link_to list.name, list_path(list) %>
           </div>
