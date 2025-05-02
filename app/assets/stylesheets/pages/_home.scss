@@ -1,1 +1,34 @@
 // Specific CSS for your home-page
+.index-banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.index-banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.index-banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.index-banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/assets/banner-image.jpg');
+  background-size: cover;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-margin {
+  margin-left: 180px;
+}

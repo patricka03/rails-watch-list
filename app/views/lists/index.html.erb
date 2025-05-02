@@ -1,11 +1,32 @@
-<h1>Save any kind of movies!!!</h1>
-<%=@lists.each do |list|%>
-  <%= list.name %>
-<% end %>
+<div class="banner index-banner">
+  <div class="container">
+    <div class="text-center">
+      <h1>Save any kind of movies</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container custom-margin">
+  <div class="row pt-5">
+    <div class="col-md-6 col-sm-12 text-start">
+      <h3>My Lists</h3>
+    </div>
+    <div class="col-md-6 col-sm-12 text-start">
+      <%= link_to 'Create a movie list', new_list_path(@lists), class: "btn btn-success" %>
+    </div>
+  </div>
 
 
-<% @lists.each do |list| %>
-  <%= link_to list_path(list), class:"text-decoration-none" do %>
-      <%= list.name %>
-  <% end %>
-<% end %>
+  <div class="row">
+    <%@lists.each do |list|%>
+      <div class="col-md-6 col-sm-12 text-center">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <%= link_to list.name, list_path(list) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

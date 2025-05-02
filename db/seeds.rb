@@ -1,17 +1,27 @@
-# list
-# validates :name, presence: true, uniqueness: true
-p 'Deleting database'
+require "json"
+require "open-uri"
+
+p 'Cleaning up the database'
+Movie.destroy_all
 List.destroy_all
 Bookmark.destroy_all
+p 'Database has been cleaned'
 
-p 'Creating a list'
 
-test_list = List.new(name: "test")
-test_list.save
-
-# bookmark
-# validates :comment, presence: true, length: { minimum: 6 }
-# validates :movie_id, uniqueness: { scope: :list_id, message: "Bookmark already exists for this movie in the list" }
-p 'Creating a bookmark'
-test_bookmark = Bookmark.new(comment: "test")
-test_bookmark.save
+url = "https://tmdb.lewagon.com/movie/top_rated"
+10.times do |i|
+  puts "Importing movies from page #{i + 1}"
+  movies_serialized = URI.parse("#{url}?page=#{i + 1}").read
+  movie = JSON.parse(movies_serialized)["results"]
+  movie.each do |movie|
+    p "creating #{movie["title"]}"
+    poster_url = "https://image.tmdb.org/t/p/original"
+    Movie.create(
+      title: movie["title"],
+      overview: movie["overview"],
+      poster_url: "#{poster_url}#{movie["backdrop_path"]}",
+      rating: movie["vote_average"]
+    )
+  end
+end
+p 'Movies created'
