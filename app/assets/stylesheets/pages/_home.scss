@@ -3,6 +3,7 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  // height: 500px;
 }
 
 .index-banner h1 {
@@ -23,7 +24,7 @@
 .index-banner {
   background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/assets/banner-image.jpg');
   background-size: cover;
-  height: 300px;
+  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,3 +33,4 @@
 .custom-margin {
   margin-left: 180px;
 }
+

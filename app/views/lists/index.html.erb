@@ -1,14 +1,16 @@
 <div class="banner index-banner">
-  <div class="container">
-    <div class="text-center col-md-6 col-sm-12 ">
-      <h1>Save any kind of movies</h1>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="text-center col-12">
+        <h1>Save any kind of movies</h1>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="container custom-margin">
   <div class="row pt-5">
-    <div class="col-md-6 col-sm-12 text-start">
+    <div class="col-lg-6 col-md-6 col-sm-12 text-start">
       <h3>My Lists</h3>
     </div>
     <div class="col-md-6 col-sm-12 text-start">
@@ -18,7 +20,7 @@
 
   <div class="row">
     <%@lists.each do |list|%>
-      <div class="col-md-6 col-sm-12 text-center">
+      <div class="col-lg-6 col-md-6 col-sm-12 text-center">
         <div class="card w-50">
           <%= cl_image_tag list.photo.key, crop: :fill %>
           <div class="card-body">
